@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'articles/index'
-  get 'articles/show'
+  root 'articles#index'
+  get  'articles/:id', to: 'articles#show', as: 'article'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

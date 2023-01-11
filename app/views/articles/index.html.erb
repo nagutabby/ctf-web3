@@ -1,4 +1,22 @@
-<div>
-  <h1 class="font-bold text-4xl">Articles#index</h1>
-  <p>Find me in app/views/articles/index.html.erb</p>
+<div class="grid grid-cols-1 mx-auto">
+  <h1 class="text-center text-3xl mb-5">My Blog</h1>
+  <div class="max-w-lg mx-auto">
+    <% if @source_ip_address == "92.40.172.54" %>
+      <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
+        <% @articles.each do |article| %>
+          <%= link_to image_tag("https://flowbite.com/docs/images/blog/image-1.jpg"), article_path(article.id) %>
+          <div class="p-5">
+            <%= link_to article.title, article_path(article.id), class: "text-gray-900 font-bold text-2xl tracking-tight mb-2" %>   
+            <div class="font-normal text-gray-700 mb-3">
+              <p><%= article.content %></p>
+              <p>Flag: Sec-ctf{hello_f</p>
+              <p>続きはこの記事の中にあります</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% else %>
+      <p>私の自宅(IPアドレス: 92.40.172.54)のみからアクセスできます</p>
+    <% end %>
+  </div>
 </div>
